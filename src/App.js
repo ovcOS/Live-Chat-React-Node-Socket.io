@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
 import ChatRoom from './ChatRoom.jsx';
-import { Store } from './Store.jsx';
+import { ChatStore } from './ChatStore.jsx';
 
 export default () => (
   <>
-    <Store>
+    <ChatStore>
       <ChatRoom />
-    </Store>
+    </ChatStore>
   </>
 );
 

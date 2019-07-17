@@ -1,11 +1,15 @@
 import React, { useState, useContext } from 'react';
-import { Context } from './Store.jsx'
+import { Context } from './ChatStore'
 
 export default () => {
-  const [ allChats ] = useContext(Context);
+  // context
+  const { allChats, processMessage, user } = useContext(Context);
   const topics = Object.keys(allChats);
+
+  // state
   const [textValue, setTextValue] = useState('');
   const [activeTopic, setActiveTopic] = useState(topics[0]);
+
   const submit = (e) => {
     e.preventDefault();
   }
@@ -35,7 +39,14 @@ export default () => {
           onChange={e => setTextValue(e.target.value)}        
         >
         </input>
-        <button className="send-button" style={{marginLeft: '15px'}}>
+        <button 
+          className="send-button"
+          style={{marginLeft: '15px'}}
+          onClick={() => {
+            processMessage({topic: activeTopic, from: user, msg: textValue});
+            setTextValue('');
+          }}
+        >
           SEND
         </button>
       </form>
