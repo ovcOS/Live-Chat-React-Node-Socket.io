@@ -7,7 +7,7 @@ export const Context = createContext();
 
 const initialState = {
     general: [
-    {from: 'Marius', msg: "It's 10.31. Sprint meeting!!"},
+    {from: 'Marius', msg: "It's 10.31. Sprint meeting!! 🏃‍♂️"},
     {from: 'Jules', msg: 'Coffee?'},
     {from: 'Ben', msg: 'Yes please 😴'}
     ],
@@ -15,14 +15,13 @@ const initialState = {
       {from: 'Jahlela', msg: 'Found a sick tune 🎸'},
       {from: 'Timo', msg: 'Space jungle? 🌳'},
       {from: 'Spela', msg: 'Space what?'},
-      {from: 'Yoko', msg: 'No music till 6pm folks 👮‍♀️'}
+      {from: 'Yoko', msg: 'No music till 6pm folks 👮‍♀️ 🤗'}
     ]
 }
 
 const reducer = (state, action) => {
   const { topic, from, msg } = action.payload;
-  console.log(from);
-  console.log({state});
+
   switch(action.type) {
     case 'RECEIVE_MESSAGE':
         return {
